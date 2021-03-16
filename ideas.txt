@@ -1,0 +1,22 @@
+Invis Item Frames - 100%
+Join/Quit Messages - 100%
+MobDeath Messages - 100%
+Hex/PlaceholderAPI Support - 100%
+Nick Command - 100%
+SMP Command - 100%
+Custom Death Messages - 100%
+Single Player Sleep - 100%
+Item Name/ Item Lore Command - 100%
+Shulker Respawn - 100%
+Simple GUI Maker - 100%
+Rules Command - 100%
+Help Command - 100%
+Command Conditions - 100%
+=============================================================
+Head Data Base Link up - 0%
+Armor Stand Editing - 0%
+Improve Invis Item Frames - 0%
+Multiple Single Player Sleep Messages - 0%
+Custom Villager Trades - 0%
+Vanilla Player Heads - 0%
+[*] Anti-Grief

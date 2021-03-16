@@ -1,0 +1,82 @@
+#░██████╗███╗░░░███╗██████╗░░░░░░░░
+#██╔════╝████╗░████║██╔══██╗░░██╗░░
+#╚█████╗░██╔████╔██║██████╔╝██████╗
+#░╚═══██╗██║╚██╔╝██║██╔═══╝░╚═██╔═╝
+#██████╔╝██║░╚═╝░██║██║░░░░░░░╚═╝░░
+#╚═════╝░╚═╝░░░░░╚═╝╚═╝░░░░░░░░░░░░
+
+Prefix: '&8&l[&3&lSMP+&8&l] '
+
+Events:
+  Chat:
+    enabled: true
+    format: "{displayname} &8&l» &r{message}"
+  Join:
+    enabled: true
+    message: "&8&l[&2▶&8&l] &dWelcome {player} back to the server"
+  ##################################################################################################
+  #Example Join Event. These methods will work for Join and First Join Events.
+  #Join:
+    #enabled: true
+    #message: "Welcome {player}" //This will send a server wide join message
+    #direct-message: "Hello" //This will send a message just to the player which joined
+    #action-bar: "This is an actionbar" //This will send an action bar to the player that joined
+    #title: "BIG TEXT" //This will send a title to the player that joined
+    #sub-title: "SMALL BIG TEXT" //This will send a sub title with the main title. THIS ONLY WORKS IF TITLE IS ENABLED
+    #items: // This will give items
+      #- "DIAMOND_SWORD"
+      #- "DIAMOND_ORE"
+    #console-cmd: //Runs a command from the console. Use {player} for the player that just joined
+      #- "give {player} DIAMOND_AXE 1"
+    #player-cmd: //Makes the player run a command
+      #- "me LMAO"
+  ##################################################################################################
+  FirstJoin:
+    enabled: true
+    message: "&8&l[&d❤&8&l] &d{player} joined the server for the first time!"
+  Quit:
+    enabled: true
+    message: "&8&l[&c◀&8&l] &d{player} left the server"
+  Sleep:
+    single-player-sleep: true
+    message: "&8&l[&e☼&8&l]&8&l &e{player} has slept the night away"
+  Death:
+    enabled: true
+    message: "&8&l[&c☠&8&l] &c{message}"
+  MobDeath:
+    ENDER_DRAGON:
+      message: "{player} killed the Ender Dragon!"
+
+Commands:
+  rules:
+    method: GUI #CHAT or GUI
+    gui-name: rules #configure gui in the gui.yml
+    #rule-list:
+      #- '&8&l&m======&cRules&8&l&m========'
+  help:
+    method: GUI
+    gui-name: help
+  #itemname:
+    #conditions:
+      #- "MONEY:5:TAKE"
+      #- "PERMISSION:smp.custom-perm"
+      #- "ITEM:DIAMOND:3:TAKE"
+      #EXP is a planned feature.
+    #deny-message: "&cYou need $5 for this"
+
+ItemFrames:
+  SetRange:
+    X: 3
+    Y: 3
+    Z: 3
+
+Shulkers:
+  Respawn: true
+  Chance: 0.3
+
+CustomCommands:
+  example:
+    permission: 'smp.command.example'
+    permission-msg: '{prefix}&cInvalid Permission'
+    action:
+      - 'GUI:help'
