@@ -11,6 +11,7 @@ import Dev.ScalerGames.SmpPlus.Gui.GuiCreator;
 import Dev.ScalerGames.SmpPlus.Gui.GuiListener;
 import Dev.ScalerGames.SmpPlus.Listeners.*;
 import Dev.ScalerGames.SmpPlus.Utils.Format;
+import Dev.ScalerGames.SmpPlus.Utils.UpdateChecker;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -44,6 +45,11 @@ public class Main extends JavaPlugin implements Listener {
             GuiCreator.store(menuname, ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', Gui.getGuiConfig().getString("Menus." + menuname + ".name"))));
         }
         getLogger().info(GuiCreator.storage.values().toString() + GuiCreator.storage.keySet().toString());
+        new UpdateChecker(this,89809).getVersion(version -> {
+            if (!this.getDescription().getVersion().equalsIgnoreCase(version)) {
+                getLogger().info(Format.color("&2There is a new update available"));
+            }
+        });
 
     }
 
