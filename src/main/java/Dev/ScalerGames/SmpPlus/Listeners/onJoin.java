@@ -34,7 +34,8 @@ public class onJoin implements Listener {
                         .replace("{displayname}", event.getPlayer().getDisplayName()).replace("{world}", event.getPlayer().getWorld().toString())));
 
                 Message.message(event.getPlayer(), "Join");
-                Bar.bar(event.getPlayer(), "Join");
+                //Bar.bar(event.getPlayer(), "Join");
+                ActionBar.bar(event.getPlayer(), "Join");
                 Title.title(event.getPlayer(), "Join");
                 Items.giveItem(event.getPlayer(), "Join");
                 Command.console(event.getPlayer(), "Join");

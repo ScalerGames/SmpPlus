@@ -6,12 +6,14 @@ C:\Users\josht\Desktop\Plugins\SmpPlus\src\main\java\Dev\ScalerGames\SmpPlus\Com
 C:\Users\josht\Desktop\Plugins\SmpPlus\src\main\java\Dev\ScalerGames\SmpPlus\Commands\SmpTAB.java
 C:\Users\josht\Desktop\Plugins\SmpPlus\src\main\java\Dev\ScalerGames\SmpPlus\Utils\Int.java
 C:\Users\josht\Desktop\Plugins\SmpPlus\src\main\java\Dev\ScalerGames\SmpPlus\Files\Gui.java
+C:\Users\josht\Desktop\Plugins\SmpPlus\src\main\java\Dev\ScalerGames\SmpPlus\Methods\ActionBar.java
 C:\Users\josht\Desktop\Plugins\SmpPlus\src\main\java\Dev\ScalerGames\SmpPlus\Listeners\onMobDeath.java
 C:\Users\josht\Desktop\Plugins\SmpPlus\src\main\java\Dev\ScalerGames\SmpPlus\Files\Data.java
 C:\Users\josht\Desktop\Plugins\SmpPlus\src\main\java\Dev\ScalerGames\SmpPlus\Methods\Command.java
 C:\Users\josht\Desktop\Plugins\SmpPlus\src\main\java\Dev\ScalerGames\SmpPlus\Commands\Item\LoreTAB.java
 C:\Users\josht\Desktop\Plugins\SmpPlus\src\main\java\Dev\ScalerGames\SmpPlus\Main.java
 C:\Users\josht\Desktop\Plugins\SmpPlus\src\main\java\Dev\ScalerGames\SmpPlus\Commands\Item\NameCMD.java
+C:\Users\josht\Desktop\Plugins\SmpPlus\src\main\java\Dev\ScalerGames\SmpPlus\ArmorStands\ArmorStandGUI.java
 C:\Users\josht\Desktop\Plugins\SmpPlus\src\main\java\Dev\ScalerGames\SmpPlus\Commands\Item\LoreCMD.java
 C:\Users\josht\Desktop\Plugins\SmpPlus\src\main\java\Dev\ScalerGames\SmpPlus\Methods\Bar.java
 C:\Users\josht\Desktop\Plugins\SmpPlus\src\main\java\Dev\ScalerGames\SmpPlus\Methods\Conditions.java
@@ -19,9 +21,11 @@ C:\Users\josht\Desktop\Plugins\SmpPlus\src\main\java\Dev\ScalerGames\SmpPlus\Met
 C:\Users\josht\Desktop\Plugins\SmpPlus\src\main\java\Dev\ScalerGames\SmpPlus\Gui\GuiCreator.java
 C:\Users\josht\Desktop\Plugins\SmpPlus\src\main\java\Dev\ScalerGames\SmpPlus\Methods\Message.java
 C:\Users\josht\Desktop\Plugins\SmpPlus\src\main\java\Dev\ScalerGames\SmpPlus\Listeners\onQuit.java
+C:\Users\josht\Desktop\Plugins\SmpPlus\src\main\java\Dev\ScalerGames\SmpPlus\Utils\UpdateChecker.java
 C:\Users\josht\Desktop\Plugins\SmpPlus\src\main\java\Dev\ScalerGames\SmpPlus\Listeners\onSleep.java
 C:\Users\josht\Desktop\Plugins\SmpPlus\src\main\java\Dev\ScalerGames\SmpPlus\Methods\Title.java
 C:\Users\josht\Desktop\Plugins\SmpPlus\src\main\java\Dev\ScalerGames\SmpPlus\Listeners\onChat.java
+C:\Users\josht\Desktop\Plugins\SmpPlus\src\main\java\Dev\ScalerGames\SmpPlus\ArmorStands\onStandClick.java
 C:\Users\josht\Desktop\Plugins\SmpPlus\src\main\java\Dev\ScalerGames\SmpPlus\Utils\StringJoin.java
 C:\Users\josht\Desktop\Plugins\SmpPlus\src\main\java\Dev\ScalerGames\SmpPlus\Gui\ItemHandler.java
 C:\Users\josht\Desktop\Plugins\SmpPlus\src\main\java\Dev\ScalerGames\SmpPlus\Listeners\onJoin.java

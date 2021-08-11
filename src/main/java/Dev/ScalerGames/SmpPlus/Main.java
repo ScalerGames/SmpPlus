@@ -48,6 +48,8 @@ public class Main extends JavaPlugin implements Listener {
         new UpdateChecker(this,89809).getVersion(version -> {
             if (!this.getDescription().getVersion().equalsIgnoreCase(version)) {
                 getLogger().info(Format.color("&2There is a new update available"));
+            } else {
+                getLogger().info(Format.color("&2You are running the latest version!"));
             }
         });
 
@@ -70,8 +72,6 @@ public class Main extends JavaPlugin implements Listener {
         getCommand("smp").setTabCompleter((TabCompleter)new SmpTAB());
         getCommand("rules").setExecutor((CommandExecutor)new RulesCMD());
         getCommand("help").setExecutor((CommandExecutor)new HelpCMD());
-        //Custom Commands
-        //--End--
     }
 
     public void enableListeners() {

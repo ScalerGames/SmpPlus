@@ -1,7 +1,6 @@
 package Dev.ScalerGames.SmpPlus.Gui;
 
 import Dev.ScalerGames.SmpPlus.Files.Gui;
-import Dev.ScalerGames.SmpPlus.Main;
 import Dev.ScalerGames.SmpPlus.Utils.Format;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.ConfigurationSection;

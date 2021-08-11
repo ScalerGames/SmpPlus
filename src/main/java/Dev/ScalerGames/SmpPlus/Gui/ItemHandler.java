@@ -4,7 +4,6 @@ package Dev.ScalerGames.SmpPlus.Gui;
 import Dev.ScalerGames.SmpPlus.Files.Gui;
 import Dev.ScalerGames.SmpPlus.Main;
 import Dev.ScalerGames.SmpPlus.Utils.Format;
-import dev.dbassett.skullcreator.SkullCreator;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
@@ -12,7 +11,6 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.inventory.meta.SkullMeta;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,84 +23,41 @@ public class ItemHandler {
 
         try {
 
-            if (Gui.getGuiConfig().getString("Menus." + name + ".items." + itemname + ".item").equalsIgnoreCase("PLAYER_HEAD") || Gui.getGuiConfig().getString("Menus." + name + ".items." + itemname + ".item").equalsIgnoreCase("SKULL")) {
+            ItemStack item = new ItemStack(Material.valueOf(Gui.getGuiConfig().getString("Menus." + name + ".items." + itemname + ".item")));
+            ItemMeta meta = item.getItemMeta();
 
-                String[] list = Gui.getGuiConfig().getString("Menus." + name + ".items." + itemname + ".item").split(":");
-                if (list.length == 0) {
-                    Main.getInstance().getLogger().info(Format.color("&cInvalid Head Format"));
-                } else {
-                    String code = list[1];
-                    SkullCreator.itemFromBase64(code);
-                    SkullMeta meta = (SkullMeta) SkullCreator.itemFromBase64(code).getItemMeta();
+            displayName(meta, p, name, itemname);
 
-                    displayName(meta, p, name, itemname);
+            lore(meta, p, name, itemname);
 
-                    lore(meta, p, name, itemname);
+            enchants(meta, p, name, itemname);
 
-                    enchants(meta, p, name, itemname);
+            flags(meta, p, name, itemname);
 
-                    flags(meta, p, name, itemname);
-                    SkullCreator.itemFromBase64(code).setItemMeta(meta);
-                    try {
-                        if (Gui.getGuiConfig().isInt("Menus." + name + ".items." + itemname + ".slot")) {
-                            inv.setItem(Gui.getGuiConfig().getInt("Menus." + name + ".items." + itemname + ".slot"), SkullCreator.itemFromBase64(code));
+            item.setItemMeta(meta);
+            try {
+                if (Gui.getGuiConfig().isInt("Menus." + name + ".items." + itemname + ".slot")) {
+                    inv.setItem(Gui.getGuiConfig().getInt("Menus." + name + ".items." + itemname + ".slot"), item);
+                }
+                if (Gui.getGuiConfig().isString("Menus." + name + ".items." + itemname + ".slot")) {
+                    String[] list = Gui.getGuiConfig().getString("Menus." + name + ".items." + itemname + ".slot").split("-");
+                    if (list.length == 0) {
+                        inv.setItem(Integer.parseInt(Gui.getGuiConfig().getString("Menus." + name + ".items." + itemname + ".slot")), item);
+                    }
+                    else {
+                        String from = list[0];
+                        String too = list[1];
+                        for (int i = Integer.parseInt(from); i <= Integer.parseInt(too); i++) {
+                            inv.setItem(i, item);
                         }
-                        if (Gui.getGuiConfig().isString("Menus." + name + ".items." + itemname + ".slot")) {
-                            String[] list2 = Gui.getGuiConfig().getString("Menus." + name + ".items." + itemname + ".slot").split("-");
-                            if (list.length == 0) {
-                                inv.setItem(Integer.parseInt(Gui.getGuiConfig().getString("Menus." + name + ".items." + itemname + ".slot")), SkullCreator.itemFromBase64(code));
-                            }
-                            else {
-                                String from = list2[0];
-                                String too = list2[1];
-                                for (int i = Integer.parseInt(from); i <= Integer.parseInt(too); i++) {
-                                    inv.setItem(i, SkullCreator.itemFromBase64(code));
-                                }
-                            }
-                        }
-                        if (Gui.getGuiConfig().isList("Menus." + name + ".items." + itemname + ".slot")) {
-                            for (String integer : Gui.getGuiConfig().getStringList("Menus." + name + ".items." + itemname + ".slot")) {
-                                String[] list2 = integer.split("-");
-                                if (list.length == 0) {
-                                    inv.setItem(Integer.parseInt(integer), SkullCreator.itemFromBase64(code));
-                                } else {
-                                    String from = list2[0];
-                                    String too = list2[1];
-                                    for (int i = Integer.parseInt(from); i <= Integer.parseInt(too); i++) {
-                                        inv.setItem(i, SkullCreator.itemFromBase64(code));
-                                    }
-                                }
-                            }
-                        }
-                    } catch (Exception e) {
-                        Main.getInstance().getLogger().info(Format.color("&cAn item could not find it's slot in the gui"));
                     }
                 }
-
-            } else {
-
-                ItemStack item = new ItemStack(Material.valueOf(Gui.getGuiConfig().getString("Menus." + name + ".items." + itemname + ".item")));
-                ItemMeta meta = item.getItemMeta();
-
-                displayName(meta, p, name, itemname);
-
-                lore(meta, p, name, itemname);
-
-                enchants(meta, p, name, itemname);
-
-                flags(meta, p, name, itemname);
-
-                item.setItemMeta(meta);
-                try {
-                    if (Gui.getGuiConfig().isInt("Menus." + name + ".items." + itemname + ".slot")) {
-                        inv.setItem(Gui.getGuiConfig().getInt("Menus." + name + ".items." + itemname + ".slot"), item);
-                    }
-                    if (Gui.getGuiConfig().isString("Menus." + name + ".items." + itemname + ".slot")) {
-                        String[] list = Gui.getGuiConfig().getString("Menus." + name + ".items." + itemname + ".slot").split("-");
+                if (Gui.getGuiConfig().isList("Menus." + name + ".items." + itemname + ".slot")) {
+                    for (String integer : Gui.getGuiConfig().getStringList("Menus." + name + ".items." + itemname + ".slot")) {
+                        String[] list = integer.split("-");
                         if (list.length == 0) {
-                            inv.setItem(Integer.parseInt(Gui.getGuiConfig().getString("Menus." + name + ".items." + itemname + ".slot")), item);
-                        }
-                        else {
+                            inv.setItem(Integer.parseInt(integer), item);
+                        } else {
                             String from = list[0];
                             String too = list[1];
                             for (int i = Integer.parseInt(from); i <= Integer.parseInt(too); i++) {
@@ -110,25 +65,11 @@ public class ItemHandler {
                             }
                         }
                     }
-                    if (Gui.getGuiConfig().isList("Menus." + name + ".items." + itemname + ".slot")) {
-                        for (String integer : Gui.getGuiConfig().getStringList("Menus." + name + ".items." + itemname + ".slot")) {
-                            String[] list = integer.split("-");
-                            if (list.length == 0) {
-                                inv.setItem(Integer.parseInt(integer), item);
-                            } else {
-                                String from = list[0];
-                                String too = list[1];
-                                for (int i = Integer.parseInt(from); i <= Integer.parseInt(too); i++) {
-                                    inv.setItem(i, item);
-                                }
-                            }
-                        }
-                    }
-                } catch (Exception e) {
-                    Main.getInstance().getLogger().info(Format.color("&cAn item could not find it's slot in the gui"));
                 }
-
+            } catch (Exception e) {
+                Main.getInstance().getLogger().info(Format.color("&cAn item could not find it's slot in the gui"));
             }
+
 
         } catch (Exception e) {
             ItemStack item = new ItemStack(Material.BARRIER);
@@ -139,10 +80,6 @@ public class ItemHandler {
             Main.getInstance().getLogger().info(Format.color("&cInvalid Item in " + p.getName() + "'s open gui"));
         }
 
-    }
-
-    public static ItemStack headGenerator(String base64) {
-        return SkullCreator.itemFromBase64(base64);
     }
 
     public static void displayName(ItemMeta meta, Player p, String name, String itemname) {

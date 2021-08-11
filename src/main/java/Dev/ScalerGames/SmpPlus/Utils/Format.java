@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 public class Format {
 
     public static String color(String msg) {
-        if (Bukkit.getVersion().contains("1.16")) {
+        if (Bukkit.getVersion().contains("1.16") || Bukkit.getVersion().contains("1.17")) {
             Pattern pattern = Pattern.compile("#[a-fA-F0-9]{6}");
             Matcher match = pattern.matcher(msg);
             while (match.find()) {
@@ -31,7 +31,7 @@ public class Format {
 
         }
 
-        if (Bukkit.getVersion().contains("1.16")) {
+        if (Bukkit.getVersion().contains("1.16") || Bukkit.getVersion().contains("1.17")) {
             Pattern pattern = Pattern.compile("#[a-fA-F0-9]{6}");
             Matcher match = pattern.matcher(msg);
             while (match.find()) {
