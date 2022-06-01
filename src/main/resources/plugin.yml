@@ -1,0 +1,28 @@
+main: Dev.ScalerGames.SmpPlus.Main
+name: SmpPlus
+version: 1.0.0-SNAPSHOT-1
+api-version: 1.13
+author: ScalerGames
+description: A plugin which addes several features for your SMP server!
+loadbefore:
+  - Essentials
+softdepend:
+  - PlaceholderAPI
+  - Vault
+commands:
+  lock:
+    aliases: [lockdown]
+  smp:
+    aliases: [smpplus]
+  coordinates:
+    aliases: [coords]
+  merchant:
+  mutechat:
+  unmutechat:
+  help:
+  rules:
+  kick:
+  kickall:
+  itemframe:
+  itemname:
+  itemlore:

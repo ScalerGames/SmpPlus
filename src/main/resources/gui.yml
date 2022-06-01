@@ -1,0 +1,95 @@
+Menus:
+  rules:
+    name: '&cRules'
+    size: 27
+    items:
+      0:
+        item: 'RED_STAINED_GLASS_PANE'
+        slot:
+          - '0-9'
+          - '17-26'
+        display-name: '&f'
+      1:
+        item: 'PAPER'
+        slot: 12
+        display-name: '&cRule #1'
+      2:
+        item: 'PAPER'
+        slot: 13
+        display-name: '&cRule #2'
+      3:
+        item: 'PAPER'
+        slot: 14
+        display-name: '&cRule #3'
+  help:
+    name: '&3&lHelp Menu'
+    size: 27
+    items:
+      filler:
+        item: 'CYAN_STAINED_GLASS_PANE'
+        slot:
+          - '0-9'
+          - '17-26'
+        display-name: '&b&lGUI CREATOR'
+        lore:
+          - '&3Edit the help menu via the gui.yml file'
+      help:
+        item: PAPER
+        slot: 13
+        display-name: '&9&lHelp Menu'
+        lore:
+          - '&b%player_name% this is a help menu'
+        enchantments:
+          - 'DIG_SPEED:1'
+        flags:
+          - 'HIDE_ENCHANTS'
+      red-glass:
+        item: 'RED_STAINED_GLASS_PANE'
+        slot:
+          - '10-12'
+          - '14-16'
+        display-name: '&cEdit the help menu via the gui.yml'
+
+Merchants:
+  example:
+    trades:
+      trade-1:
+        buy-1:
+          item: 'DIAMOND'
+          quantity: 4
+        sell:
+          item: 'WHEAT'
+          quantity: 64
+        max-uses: 50
+      trade-2:
+        buy-1:
+          item: 'DIAMOND'
+          quantity: 3
+        buy-2:
+          item: 'GOLD_INGOT'
+          quantity: 16
+        sell:
+          item: 'GOLDEN_CARROT'
+          quantity: 64
+        max-uses: 50
+    profession: 'ARMORER'
+    type: 'PLAINS'
+    level: 5
+    name: '&2&lFarm Shop'
+  wepon-smith:
+    trades:
+      trade-1:
+        buy-1:
+          item: 'DIAMOND'
+          quantity: 10
+        buy-2:
+          item: 'STICK'
+          quantity: 16
+        sell:
+          item: 'NETHERITE_SWORD'
+          quantity: 1
+        max-uses: 2
+    profession: 'ARMORER'
+    type: 'JUNGLE'
+    level: 5
+    name: '&4&lWeapon Smith'

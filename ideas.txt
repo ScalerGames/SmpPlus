@@ -1,0 +1,6 @@
+1 - Settings menu (Basic functions added)
+2 - Block heads
+3 - Villager shops (Added) - Needs meta data features adding
+4 - Coordinates command (Added)
+5 - Conditions rework
+6 - New item frame effects / sign effects
