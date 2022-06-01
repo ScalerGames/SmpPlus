@@ -3,10 +3,12 @@ package Dev.ScalerGames.SmpPlus.Commands;
 import Dev.ScalerGames.SmpPlus.Files.Data;
 import Dev.ScalerGames.SmpPlus.Files.Gui;
 import Dev.ScalerGames.SmpPlus.Files.Lang;
+import Dev.ScalerGames.SmpPlus.Gui.GuiListener;
 import Dev.ScalerGames.SmpPlus.Gui.SettingsGUI;
 import Dev.ScalerGames.SmpPlus.Main;
 import Dev.ScalerGames.SmpPlus.Utils.Format;
 import Dev.ScalerGames.SmpPlus.Utils.Messages;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -36,13 +38,11 @@ public class SmpCMD implements CommandExecutor, TabCompleter {
                         Data.reloadData();
                         Lang.reloadLang();
                         Gui.reloadGui();
-                        int i = 0;
                         for (String menu : Gui.getGuiConfig().getConfigurationSection("Menus").getKeys(false)) {
-                            Data.getDataConfig().getStringList("Gui-Listener").set(i,
-                                    Format.color(Data.getDataConfig().getString("Menus." + menu.substring(menu.lastIndexOf(".") + 1) + ".name")));
-                            i++;
+                            GuiListener.store(menu.substring(menu.lastIndexOf(".") + 1),
+                                    ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&',
+                                            Gui.getGuiConfig().getString("Menus." + menu.substring(menu.lastIndexOf(".") + 1) + ".name"))));
                         }
-                        Main.getInstance().getLogger().info(Format.color(Data.getDataConfig().getStringList("Gui-Listener").toString()));
                         Messages.prefix(s, "&2Reloaded Smp+");
                     }
                     //Command for checking the version of the plugin

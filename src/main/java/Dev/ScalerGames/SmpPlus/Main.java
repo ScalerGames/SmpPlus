@@ -12,6 +12,7 @@ import Dev.ScalerGames.SmpPlus.Gui.SettingsGUI;
 import Dev.ScalerGames.SmpPlus.Listeners.*;
 import Dev.ScalerGames.SmpPlus.Utils.Format;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.event.Listener;
@@ -28,12 +29,12 @@ public class Main extends JavaPlugin implements Listener {
         enableCommands();
         enableAddons();
         enableListeners();
-        int i = 0;
         for (String menu : Gui.getGuiConfig().getConfigurationSection("Menus").getKeys(false)) {
-            Data.getDataConfig().getStringList("Gui-Listener").set(i,
-                    Format.color(Data.getDataConfig().getString("Menus." + menu.substring(menu.lastIndexOf(".") + 1) + ".name")));
-            i++;
+            GuiListener.store(menu.substring(menu.lastIndexOf(".") + 1),
+                    ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&',
+                            Gui.getGuiConfig().getString("Menus." + menu.substring(menu.lastIndexOf(".") + 1) + ".name"))));
         }
+        getLogger().info(GuiListener.storage.toString());
     }
 
     @Override
