@@ -4,3 +4,5 @@ Server-Lock-Message: '&cServer Downtime'
 Settings:
   player: ""
   event: ""
+
+Gui-Listener:

@@ -7,6 +7,7 @@ import Dev.ScalerGames.SmpPlus.Files.Config;
 import Dev.ScalerGames.SmpPlus.Files.Data;
 import Dev.ScalerGames.SmpPlus.Files.Gui;
 import Dev.ScalerGames.SmpPlus.Files.Lang;
+import Dev.ScalerGames.SmpPlus.Gui.GuiListener;
 import Dev.ScalerGames.SmpPlus.Gui.SettingsGUI;
 import Dev.ScalerGames.SmpPlus.Listeners.*;
 import Dev.ScalerGames.SmpPlus.Utils.Format;
@@ -27,6 +28,12 @@ public class Main extends JavaPlugin implements Listener {
         enableCommands();
         enableAddons();
         enableListeners();
+        int i = 0;
+        for (String menu : Gui.getGuiConfig().getConfigurationSection("Menus").getKeys(false)) {
+            Data.getDataConfig().getStringList("Gui-Listener").set(i,
+                    Format.color(Data.getDataConfig().getString("Menus." + menu.substring(menu.lastIndexOf(".") + 1) + ".name")));
+            i++;
+        }
     }
 
     @Override
@@ -82,6 +89,7 @@ public class Main extends JavaPlugin implements Listener {
         Bukkit.getPluginManager().registerEvents(new onSleep(), this);
         Bukkit.getPluginManager().registerEvents(new onMobDeath(), this);
         Bukkit.getPluginManager().registerEvents(new SettingsGUI(), this);
+        Bukkit.getPluginManager().registerEvents(new GuiListener(), this);
     }
 
 }
