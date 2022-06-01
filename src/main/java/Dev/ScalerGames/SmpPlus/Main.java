@@ -91,6 +91,7 @@ public class Main extends JavaPlugin implements Listener {
         Bukkit.getPluginManager().registerEvents(new onMobDeath(), this);
         Bukkit.getPluginManager().registerEvents(new SettingsGUI(), this);
         Bukkit.getPluginManager().registerEvents(new GuiListener(), this);
+        Bukkit.getPluginManager().registerEvents(new onMobSpawn(), this);
     }
 
 }

@@ -43,3 +43,7 @@ ItemFrames:
     X: 3.0
     Y: 3.0
     Z: 3.0
+
+Shulkers:
+  Respawn: true
+  Chance: 0.3
