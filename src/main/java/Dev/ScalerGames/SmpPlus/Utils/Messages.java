@@ -1,6 +1,7 @@
 package Dev.ScalerGames.SmpPlus.Utils;
 
 import Dev.ScalerGames.SmpPlus.Files.Lang;
+import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -12,6 +13,10 @@ public class Messages {
         } else {
             s.sendMessage(Format.color(Lang.getLangConfig().getString("Prefix") + msg));
         }
+    }
+
+    public static void logger(String msg) {
+        Bukkit.getConsoleSender().sendMessage(Format.color("#cccccc[SmpPlus] " + msg));
     }
 
 }

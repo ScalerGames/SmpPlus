@@ -51,7 +51,7 @@ public class MerchantCMD implements CommandExecutor, TabCompleter {
                                 conditions(args, vil);
                                 vil.setRecipes(recipes);
                             } catch (Exception e) {
-                                Main.getInstance().getLogger().info("&cThe merchant has an invalid field");
+                                Messages.logger("&cThe merchant has an invalid field");
                                 Messages.prefix(s, "&cThe merchant has an invalid field");
                             }
 
@@ -100,7 +100,7 @@ public class MerchantCMD implements CommandExecutor, TabCompleter {
     public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
         if (arguments.isEmpty()) {
             arguments.add("summon"); arguments.add("kill");
-            arguments.add("list");
+            arguments.add("list"); arguments.add("help");
         }
 
         List<String> result = new ArrayList<String>();
@@ -130,7 +130,7 @@ public class MerchantCMD implements CommandExecutor, TabCompleter {
                         + trade + ".buy-1.item")), Gui.getGuiConfig().getInt("Merchants." + args[1] + ".trades." + trade + ".buy-1.quantity"));
                 recipe.addIngredient(buy_item);
             } catch (Exception e) {
-                Main.getInstance().getLogger().info(Format.color("&cThe 1st payment item is invalid in the summoned merchant"));
+                Messages.logger("&cThe 1st payment item is invalid in the summoned merchant");
             }
             //This is the second payment item
             if (Gui.getGuiConfig().contains("Merchants." + args[1] + ".trades." + trade + ".buy-2")) {
@@ -139,14 +139,14 @@ public class MerchantCMD implements CommandExecutor, TabCompleter {
                             + trade + ".buy-2.item")), Gui.getGuiConfig().getInt("Merchants." + args[1] + ".trades." + trade + ".buy-2.quantity"));
                     recipe.addIngredient(buy_item);
                 } catch (Exception e) {
-                    Main.getInstance().getLogger().info(Format.color("&cThe 2nd payment item is invalid in the summoned merchant"));
+                    Messages.logger("&cThe 2nd payment item is invalid in the summoned merchant");
                 }
             }
 
             return recipe;
 
         } else {
-            Main.getInstance().getLogger().info(Format.color("&cAn item for sale in the summoned merchant is invalid"));
+            Messages.logger("&cAn item for sale in the summoned merchant is invalid");
         }
         return null;
     }
@@ -171,7 +171,7 @@ public class MerchantCMD implements CommandExecutor, TabCompleter {
                     String[] split = attribute.split(":");
                     vil.getAttribute(Attribute.valueOf(split[0])).setBaseValue(Double.parseDouble(split[1]));
                 } catch (Exception e) {
-                    Main.getInstance().getLogger().info("&cThe summoned villager contains an invalid attribute");
+                    Messages.logger("&cThe summoned villager contains an invalid attribute");
                 }
             }
         }

@@ -3,8 +3,8 @@
 3 - Villager shops (Added) - Needs meta data features adding
 4 - Coordinates command (Added)
 5 - Conditions rework
-6 - New item frame effects / sign effects
-7 - Durability aleart
+6 - New item frame effects / sign effects (Added)
+7 - Durability aleart (Added)
 8 - Player head drops
 9 - Gamerule menu
 10 - Silence mobs

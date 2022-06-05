@@ -29,6 +29,10 @@ Events:
   MobDeath:
     ENDER_DRAGON:
       message: "{player} killed the Ender Dragon!"
+  PlayerDropHead:
+    enabled: true
+    place-in-inventory: false
+    message: ""
 
 Commands:
   rules:
@@ -40,7 +44,7 @@ Commands:
 
 Durability:
   enabled: true
-  message: '&8&l[&c⛏&8&l] &cThe item (&c&n{item}&c) has low durability!'
+  message: "&8&l[&c⛏&8&l] &cThe item (&c&n{item}&c) has low durability!"
   amount: 8
 
 ItemFrames:

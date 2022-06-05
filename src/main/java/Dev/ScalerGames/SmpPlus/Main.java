@@ -10,7 +10,8 @@ import Dev.ScalerGames.SmpPlus.Files.Lang;
 import Dev.ScalerGames.SmpPlus.Gui.GuiListener;
 import Dev.ScalerGames.SmpPlus.Gui.SettingsGUI;
 import Dev.ScalerGames.SmpPlus.Listeners.*;
-import Dev.ScalerGames.SmpPlus.Utils.Format;
+import Dev.ScalerGames.SmpPlus.Utils.Messages;
+import Dev.ScalerGames.SmpPlus.Utils.UpdateChecker;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -32,14 +33,21 @@ public class Main extends JavaPlugin implements Listener {
         enableFiles();
         enableAddons();
         enableCommands();
-        enableAddons();
         enableListeners();
+        new UpdateChecker(this, 89809).getVersion(version -> {
+            if (!this.getDescription().getVersion().equalsIgnoreCase(version)) {
+                Messages.logger("&6There is a new update available");
+            } else {
+                Messages.logger("&2You are running the latest version");
+            }
+        });
         for (String menu : Gui.getGuiConfig().getConfigurationSection("Menus").getKeys(false)) {
             GuiListener.store(menu.substring(menu.lastIndexOf(".") + 1),
                     ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&',
                             Gui.getGuiConfig().getString("Menus." + menu.substring(menu.lastIndexOf(".") + 1) + ".name"))));
         }
-        getLogger().info(GuiListener.storage.toString());
+        Messages.logger("&2Gui List: " + GuiListener.storage.toString());
+        Messages.logger("&2You are running version " + Main.getInstance().getDescription().getVersion() + " of SmpPlus");
     }
 
     @Override
@@ -61,12 +69,12 @@ public class Main extends JavaPlugin implements Listener {
     public void enableAddons() {
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
             Bukkit.getPluginManager().registerEvents(this, this);
-            getLogger().info(Format.color("&2Successfully hooked into PlaceholderAPI"));
+            Messages.logger("&2Successfully hooked into PlaceholderAPI");
         }
 
         if (setupEconomy()) {
             Bukkit.getPluginManager().registerEvents(this, this);
-            getLogger().info(Format.color("&2Successfully hooked into Vault"));
+            Messages.logger("&2Successfully hooked into Vault");
         }
     }
 

@@ -54,8 +54,13 @@ public class SmpCMD implements CommandExecutor, TabCompleter {
                     if (args[0].equalsIgnoreCase("settings")) {
                         SettingsGUI.generate((Player) s);
                     }
+                    if (args[0].equalsIgnoreCase("server")) {
+                        Messages.prefix(s, "&9&lServer Version: &3" + Main.getInstance().getServer().getVersion()
+                                + "\n&9&lBukkit Version: &3" + Main.getInstance().getServer().getBukkitVersion()
+                                + "\n&9&lPlugin Version: &3" + Main.getInstance().getDescription().getVersion());
+                    }
 
-                    if (!(args[0].equalsIgnoreCase("reload") || args[0].equalsIgnoreCase("version") || args[0].equals("settings"))) {
+                    if (!(args[0].equalsIgnoreCase("reload") || args[0].equalsIgnoreCase("version") || args[0].equals("settings") || args[0].equalsIgnoreCase("server"))) {
                         Messages.prefix(s, "&cUsage: /smp [reload|version]");
                     }
 
@@ -75,7 +80,7 @@ public class SmpCMD implements CommandExecutor, TabCompleter {
     public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
         if (arguments.isEmpty())  {
             arguments.add("version"); arguments.add("reload");
-            arguments.add("settings");
+            arguments.add("settings"); arguments.add("server");
         }
 
         List<String> result = new ArrayList<String>();

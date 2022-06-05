@@ -3,6 +3,7 @@ package Dev.ScalerGames.SmpPlus.Gui;
 import Dev.ScalerGames.SmpPlus.Files.Gui;
 import Dev.ScalerGames.SmpPlus.Main;
 import Dev.ScalerGames.SmpPlus.Utils.Format;
+import Dev.ScalerGames.SmpPlus.Utils.Messages;
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 import org.apache.commons.codec.binary.Base64;
@@ -72,7 +73,7 @@ public class ItemHandler {
                     }
                 }
             } catch (Exception e) {
-                Main.getInstance().getLogger().info(Format.color("&cAn item could not find it's slot in the gui"));
+                Messages.logger("&cAn item could not find it's slot in the gui");
             }
 
 
@@ -82,7 +83,7 @@ public class ItemHandler {
             meta.setDisplayName(Format.color("&4&lInvalid Item"));
             item.setItemMeta(meta);
             inv.setItem(Gui.getGuiConfig().getInt("Menus." + name + ".items." + itemname + ".slot"), item);
-            Main.getInstance().getLogger().info(Format.color("&cInvalid Item in " + p.getName() + "'s open gui"));
+            Messages.logger("&cInvalid Item in " + p.getName() + "'s open gui");
         }
 
     }
@@ -116,7 +117,7 @@ public class ItemHandler {
                 try {
                     meta.addEnchant(Enchantment.getByName(enchant), level, true);
                 } catch (Exception e) {
-                    Main.getInstance().getLogger().info(Format.color("&cInvalid Enchant in " + p.getName() + "'s open gui"));
+                    Messages.logger("&cInvalid Enchant in " + p.getName() + "'s open gui");
                 }
 
             }
@@ -131,7 +132,7 @@ public class ItemHandler {
                 try {
                     meta.addItemFlags(ItemFlag.valueOf(flags));
                 } catch (Exception e) {
-                    Main.getInstance().getLogger().info(Format.color("&cInvalid Flag in " + p.getName() + "'s open gui"));
+                    Messages.logger("&cInvalid Flag in " + p.getName() + "'s open gui");
                 }
 
             }

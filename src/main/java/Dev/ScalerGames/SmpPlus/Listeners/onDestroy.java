@@ -12,8 +12,8 @@ public class onDestroy implements Listener {
     @EventHandler
     public void onDestroy(BlockBreakEvent event) {
         if (Main.getInstance().getConfig().getBoolean("Durability.enabled")) {
-            if (event.getPlayer().getInventory().getItemInMainHand() != null) {
-                if (((Damageable) event.getPlayer().getInventory().getItemInMainHand().getItemMeta()).hasDamage()) {
+            if (!event.getPlayer().getInventory().getItemInMainHand().getType().isAir()) {
+                if (event.getPlayer().getInventory().getItemInMainHand().hasItemMeta() &&((Damageable) event.getPlayer().getInventory().getItemInMainHand().getItemMeta()).hasDamage()) {
                     Damageable dmg = (Damageable) event.getPlayer().getInventory().getItemInMainHand().getItemMeta();
                     if ((event.getPlayer().getInventory().getItemInMainHand().getType().getMaxDurability() - dmg.getDamage()) == Main.getInstance().getConfig().getInt("Durability.amount")) {
                         event.getPlayer().sendMessage(Format.placeholder(event.getPlayer(),

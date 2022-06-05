@@ -2,6 +2,7 @@ package Dev.ScalerGames.SmpPlus.Commands;
 
 import Dev.ScalerGames.SmpPlus.Main;
 import Dev.ScalerGames.SmpPlus.Utils.Format;
+import Dev.ScalerGames.SmpPlus.Utils.Messages;
 import Dev.ScalerGames.SmpPlus.Utils.Tools;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -36,10 +37,10 @@ public class Conditions {
                                 return false;
                             }
                         } else {
-                            Main.getInstance().getLogger().info(Format.color("&cCondition <" + condition + "> for command " + label + " is invalid"));
+                            Messages.logger("&cCondition <" + condition + "> for command " + label + " is invalid");
                         }
                     } else {
-                        Main.getInstance().getLogger().info(Format.color("&cCondition <" + condition + "> for command " + label + " is invalid"));
+                        Messages.logger("&cCondition <" + condition + "> for command " + label + " is invalid");
                     }
                 }
 
@@ -61,10 +62,10 @@ public class Conditions {
                                 return false;
                             }
                         } catch (NullPointerException e) {
-                            Main.getInstance().getLogger().info(Format.color("&cCondition <" + condition + "> for command " + label + " is invalid"));
+                            Messages.logger("&cCondition <" + condition + "> for command " + label + " is invalid");
                         }
                     } else {
-                        Main.getInstance().getLogger().info(Format.color("&cCondition <" + condition + "> for command " + label + " is invalid"));
+                        Messages.logger("&cCondition <" + condition + "> for command " + label + " is invalid");
                     }
                 }
 
@@ -77,7 +78,7 @@ public class Conditions {
                             return false;
                         }
                     } else {
-                        Main.getInstance().getLogger().info(Format.color("&cCondition <" + condition + "> for command " + label + " is invalid"));
+                        Messages.logger("&cCondition <" + condition + "> for command " + label + " is invalid");
                     }
                 }
 
@@ -96,7 +97,7 @@ public class Conditions {
                             return false;
                         }
                     } else {
-                        Main.getInstance().getLogger().info(Format.color("&cCondition <" + condition + "> for command " + label + " is invalid"));
+                        Messages.logger("&cCondition <" + condition + "> for command " + label + " is invalid");
                     }
                 }
 
