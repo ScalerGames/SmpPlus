@@ -4,3 +4,7 @@
 4 - Coordinates command (Added)
 5 - Conditions rework
 6 - New item frame effects / sign effects
+7 - Durability aleart
+8 - Player head drops
+9 - Gamerule menu
+10 - Silence mobs

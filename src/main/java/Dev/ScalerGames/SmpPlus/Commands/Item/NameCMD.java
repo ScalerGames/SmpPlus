@@ -1,6 +1,8 @@
 package Dev.ScalerGames.SmpPlus.Commands.Item;
 
+import Dev.ScalerGames.SmpPlus.Commands.Conditions;
 import Dev.ScalerGames.SmpPlus.Files.Lang;
+import Dev.ScalerGames.SmpPlus.Main;
 import Dev.ScalerGames.SmpPlus.Utils.Format;
 import Dev.ScalerGames.SmpPlus.Utils.Messages;
 import Dev.ScalerGames.SmpPlus.Utils.Tools;
@@ -22,7 +24,6 @@ public class NameCMD implements CommandExecutor {
                     if (args.length >= 1) {
 
                         if (!p.getInventory().getItemInMainHand().getType().isAir()) {
-                            //CONDITIONS NEED TO BE ADDED
                             ItemStack item = p.getInventory().getItemInMainHand();
                             ItemMeta meta = item.getItemMeta();
                             meta.setDisplayName(Format.color(Tools.join(args, 0)));

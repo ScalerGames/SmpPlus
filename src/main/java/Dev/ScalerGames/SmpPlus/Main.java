@@ -11,21 +11,26 @@ import Dev.ScalerGames.SmpPlus.Gui.GuiListener;
 import Dev.ScalerGames.SmpPlus.Gui.SettingsGUI;
 import Dev.ScalerGames.SmpPlus.Listeners.*;
 import Dev.ScalerGames.SmpPlus.Utils.Format;
+import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.event.Listener;
+import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin implements Listener {
 
     public static Main plugin;
 
+    public static Economy econ = null;
+
     @Override
     public void onEnable() {
         plugin = this;
         enableFiles();
+        enableAddons();
         enableCommands();
         enableAddons();
         enableListeners();
@@ -53,33 +58,36 @@ public class Main extends JavaPlugin implements Listener {
         Gui.saveDefaultGui();
     }
 
-    public void enableCommands() {
-        getCommand("smp").setExecutor((CommandExecutor)new SmpCMD());
-        getCommand("smp").setTabCompleter((TabCompleter)new SmpCMD());
-        getCommand("lock").setExecutor((CommandExecutor)new LockCMD());
-        getCommand("lock").setTabCompleter((TabCompleter) new LockCMD());
-        getCommand("coordinates").setExecutor((CommandExecutor)new CoordinatesCMD());
-        getCommand("merchant").setExecutor((CommandExecutor)new MerchantCMD());
-        getCommand("mutechat").setExecutor((CommandExecutor)new ChatCMD());
-        getCommand("unmutechat").setExecutor((CommandExecutor)new ChatCMD());
-        getCommand("help").setExecutor((CommandExecutor)new InfoCMD());
-        getCommand("rules").setExecutor((CommandExecutor)new InfoCMD());
-        getCommand("kick").setExecutor((CommandExecutor)new KickCMD());
-        getCommand("kickall").setExecutor((CommandExecutor)new KickCMD());
-        getCommand("itemframe").setExecutor((CommandExecutor)new FrameCMD());
-        getCommand("itemframe").setTabCompleter((TabCompleter)new FrameCMD());
-        getCommand("itemname").setExecutor((CommandExecutor)new NameCMD());
-        getCommand("itemlore").setExecutor((CommandExecutor)new LoreCMD());
-        getCommand("itemlore").setTabCompleter((TabCompleter)new LoreCMD());
-    }
-
     public void enableAddons() {
-
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
-            Bukkit.getPluginManager().registerEvents(this,this);
+            Bukkit.getPluginManager().registerEvents(this, this);
             getLogger().info(Format.color("&2Successfully hooked into PlaceholderAPI"));
         }
 
+        if (setupEconomy()) {
+            Bukkit.getPluginManager().registerEvents(this, this);
+            getLogger().info(Format.color("&2Successfully hooked into Vault"));
+        }
+    }
+
+    public void enableCommands() {
+        getCommand("smp").setExecutor((CommandExecutor) new SmpCMD());
+        getCommand("smp").setTabCompleter((TabCompleter) new SmpCMD());
+        getCommand("lock").setExecutor((CommandExecutor) new LockCMD());
+        getCommand("lock").setTabCompleter((TabCompleter) new LockCMD());
+        getCommand("coordinates").setExecutor((CommandExecutor) new CoordinatesCMD());
+        getCommand("merchant").setExecutor((CommandExecutor) new MerchantCMD());
+        getCommand("mutechat").setExecutor((CommandExecutor) new ChatCMD());
+        getCommand("unmutechat").setExecutor((CommandExecutor) new ChatCMD());
+        getCommand("help").setExecutor((CommandExecutor) new InfoCMD());
+        getCommand("rules").setExecutor((CommandExecutor) new InfoCMD());
+        getCommand("kick").setExecutor((CommandExecutor) new KickCMD());
+        getCommand("kickall").setExecutor((CommandExecutor) new KickCMD());
+        getCommand("itemframe").setExecutor((CommandExecutor) new FrameCMD());
+        getCommand("itemframe").setTabCompleter((TabCompleter) new FrameCMD());
+        getCommand("itemname").setExecutor((CommandExecutor) new NameCMD());
+        getCommand("itemlore").setExecutor((CommandExecutor) new LoreCMD());
+        getCommand("itemlore").setTabCompleter((TabCompleter) new LoreCMD());
     }
 
     public void enableListeners() {
@@ -92,6 +100,20 @@ public class Main extends JavaPlugin implements Listener {
         Bukkit.getPluginManager().registerEvents(new SettingsGUI(), this);
         Bukkit.getPluginManager().registerEvents(new GuiListener(), this);
         Bukkit.getPluginManager().registerEvents(new onMobSpawn(), this);
+        Bukkit.getPluginManager().registerEvents(new onDestroy(), this);
+    }
+
+    private boolean setupEconomy() {
+        if (getServer().getPluginManager().getPlugin("Vault") == null) {
+            return false;
+        } else {
+            RegisteredServiceProvider<Economy> rsp = getServer().getServicesManager().getRegistration(Economy.class);
+            if (rsp == null) {
+                return false;
+            }
+            econ = rsp.getProvider();
+            return true;
+        }
     }
 
 }

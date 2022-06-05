@@ -38,6 +38,11 @@ Commands:
     method: GUI
     gui-name: help
 
+Durability:
+  enabled: true
+  message: '&8&l[&c⛏&8&l] &cThe item (&c&n{item}&c) has low durability!'
+  amount: 8
+
 ItemFrames:
   Range:
     X: 3.0
