@@ -1,6 +1,7 @@
 package Dev.ScalerGames.SmpPlus.Listeners;
 
 import Dev.ScalerGames.SmpPlus.Main;
+import Dev.ScalerGames.SmpPlus.Utils.Format;
 import Dev.ScalerGames.SmpPlus.Utils.Messages;
 import org.bukkit.Material;
 import org.bukkit.block.BlockFace;
@@ -41,7 +42,7 @@ public class onClickBlock implements Listener {
 
     public boolean check(ItemStack item) {
         if (item.getType().equals(Material.matchMaterial(Main.getInstance().getConfig().getString("TerracottaRotator.item")))) {
-            if (item.getItemMeta() != null && item.getItemMeta().getDisplayName().equals(Main.getInstance().getConfig().getString("TerracottaRotator.display_name"))) {
+            if (item.getItemMeta() != null && item.getItemMeta().getDisplayName().equals(Format.color(Main.getInstance().getConfig().getString("TerracottaRotator.display_name")))) {
                 return true;
             }
         }

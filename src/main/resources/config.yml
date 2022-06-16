@@ -32,7 +32,7 @@ Events:
   PlayerDropHead:
     enabled: false
     place-in-inventory: false
-    message: ""
+    message: "&2You got a player head"
 
 Commands:
   rules:
