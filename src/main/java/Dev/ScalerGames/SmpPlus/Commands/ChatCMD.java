@@ -18,7 +18,7 @@ public class ChatCMD implements CommandExecutor {
                 Data.getDataConfig().set("Chat-Muted", true);
                 Data.saveData();
                 Bukkit.getServer().broadcastMessage(Format.color(Lang.getLangConfig().getString("Prefix")
-                        + Lang.getLangConfig().getString("Server-Chat-Disabled")));
+                        + Lang.getLangConfig().getString("Server-Chat-Disable")));
             } else {
                 Messages.prefix(s, Lang.getLangConfig().getString("Invalid-Permission"));
             }
@@ -29,7 +29,7 @@ public class ChatCMD implements CommandExecutor {
                 Data.getDataConfig().set("Chat-Muted", false);
                 Data.saveData();
                 Bukkit.getServer().broadcastMessage(Format.color(Lang.getLangConfig().getString("Prefix")
-                        + Lang.getLangConfig().getString("Server-Chat-Enabled")));
+                        + Lang.getLangConfig().getString("Server-Chat-Enable")));
             } else {
                 Messages.prefix(s, Lang.getLangConfig().getString("Invalid-Permission"));
             }

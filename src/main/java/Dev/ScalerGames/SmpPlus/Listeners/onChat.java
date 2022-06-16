@@ -50,6 +50,9 @@ public class onChat implements Listener {
                 if (!event.getPlayer().hasPermission("smp.mutechat.override")) {
                     event.setCancelled(true);
                     Messages.prefix(event.getPlayer(), Lang.getLangConfig().getString("Server-Chat-Disabled"));
+                } else {
+                    event.setFormat(Format.placeholder(event.getPlayer(), Main.getInstance().getConfig().getString("Events.Chat.format")
+                            .replace("{message}", Format.color(event.getMessage()))));
                 }
             }
         }

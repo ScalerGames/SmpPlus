@@ -16,7 +16,7 @@ public class Messages {
     }
 
     public static void logger(String msg) {
-        Bukkit.getConsoleSender().sendMessage(Format.color("#cccccc[SmpPlus] " + msg));
+        Bukkit.getConsoleSender().sendMessage("[SmpPlus] " + Format.color(msg));
     }
 
 }

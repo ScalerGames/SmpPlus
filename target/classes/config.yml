@@ -30,7 +30,7 @@ Events:
     ENDER_DRAGON:
       message: "{player} killed the Ender Dragon!"
   PlayerDropHead:
-    enabled: true
+    enabled: false
     place-in-inventory: false
     message: ""
 
@@ -53,6 +53,37 @@ ItemFrames:
     Y: 3.0
     Z: 3.0
 
+CraftingRecipes:
+  bundle:
+    result:
+      item: 'BUNDLE'
+    shape:
+      row_1: "AAA"
+      row_2: "ABA"
+      row_3: "AAA"
+    materials: ['LEATHER', 'CHEST']
+  name_tag:
+    result:
+      item: 'NAME_TAG'
+    shape:
+      row_1: "ABA"
+      row_2: "CDC"
+      row_3: "CDC"
+    materials: ['IRON_INGOT', 'STRING', 'IRON_BLOCK', 'PAPER']
+
 Shulkers:
   Respawn: true
   Chance: 0.3
+
+TerracottaRotator:
+  item: 'STICK'
+  display_name: '&6&lTerracotta Rotator'
+
+CustomEvents:
+  main-command:
+    messages:
+      - '&8&l[&3〓&8&l] &cThere is no event on right now'
+  sub-commands:
+    announce:
+      commands:
+        - 'broadcast chat &cHello'

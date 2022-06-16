@@ -31,6 +31,7 @@ public class onDeath implements Listener {
                 } else {
                     event.getEntity().getKiller().getInventory().addItem(item);
                 }
+                event.getEntity().getKiller().sendMessage(Format.placeholder(event.getEntity().getKiller(), Main.getInstance().getConfig().getString("Events.PlayerDropHead.message")));
             }
         }
     }

@@ -5,6 +5,11 @@
 5 - Conditions rework
 6 - New item frame effects / sign effects (Added)
 7 - Durability aleart (Added)
-8 - Player head drops
+8 - Player head drops (Added - not tested)
 9 - Gamerule menu
 10 - Silence mobs
+11 - Event command / feature
+12 - Custom books
+13 - Server Placeholders (Time, Online, Current World)
+14 - Basic commands allias such as gamemode and time
+15 - Custom Crafting (Added - menu needs adding)

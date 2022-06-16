@@ -3,11 +3,13 @@ package Dev.ScalerGames.SmpPlus;
 import Dev.ScalerGames.SmpPlus.Commands.*;
 import Dev.ScalerGames.SmpPlus.Commands.Item.LoreCMD;
 import Dev.ScalerGames.SmpPlus.Commands.Item.NameCMD;
+import Dev.ScalerGames.SmpPlus.Features.CraftingRecipe;
 import Dev.ScalerGames.SmpPlus.Files.Config;
 import Dev.ScalerGames.SmpPlus.Files.Data;
 import Dev.ScalerGames.SmpPlus.Files.Gui;
 import Dev.ScalerGames.SmpPlus.Files.Lang;
 import Dev.ScalerGames.SmpPlus.Gui.GuiListener;
+import Dev.ScalerGames.SmpPlus.Gui.RecipeGUI;
 import Dev.ScalerGames.SmpPlus.Gui.SettingsGUI;
 import Dev.ScalerGames.SmpPlus.Listeners.*;
 import Dev.ScalerGames.SmpPlus.Utils.Messages;
@@ -48,6 +50,7 @@ public class Main extends JavaPlugin implements Listener {
         }
         Messages.logger("&2Gui List: " + GuiListener.storage.toString());
         Messages.logger("&2You are running version " + Main.getInstance().getDescription().getVersion() + " of SmpPlus");
+        CraftingRecipe.addRecipes();
     }
 
     @Override
@@ -76,6 +79,9 @@ public class Main extends JavaPlugin implements Listener {
             Bukkit.getPluginManager().registerEvents(this, this);
             Messages.logger("&2Successfully hooked into Vault");
         }
+        if (Bukkit.getPluginManager().getPlugin("BroadcastPlus") != null) {
+            Messages.logger("&2Successfully hooked into BroadcastPlus");
+        }
     }
 
     public void enableCommands() {
@@ -96,6 +102,8 @@ public class Main extends JavaPlugin implements Listener {
         getCommand("itemname").setExecutor((CommandExecutor) new NameCMD());
         getCommand("itemlore").setExecutor((CommandExecutor) new LoreCMD());
         getCommand("itemlore").setTabCompleter((TabCompleter) new LoreCMD());
+        getCommand("event").setExecutor((CommandExecutor)new EventCMD());
+        getCommand("event").setTabCompleter((TabCompleter)new EventCMD());
     }
 
     public void enableListeners() {
@@ -109,6 +117,8 @@ public class Main extends JavaPlugin implements Listener {
         Bukkit.getPluginManager().registerEvents(new GuiListener(), this);
         Bukkit.getPluginManager().registerEvents(new onMobSpawn(), this);
         Bukkit.getPluginManager().registerEvents(new onDestroy(), this);
+        Bukkit.getPluginManager().registerEvents(new RecipeGUI(), this);
+        Bukkit.getPluginManager().registerEvents(new onClickBlock(), this);
     }
 
     private boolean setupEconomy() {

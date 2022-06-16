@@ -1,6 +1,9 @@
-Prefix: '&8&l[&d&lSMP+&8&l] '
-Invalid-Permission: '&cInvalid Permission'
+Prefix: "&8&l[&d&lSMP+&8&l] "
+Invalid-Permission: "&cInvalid Permission"
 Player-Only-Command: "&cThis is a player only command"
-Server-Lockdown-Disabled: '&2Server Lockdown Disabled'
-Server-Lockdown-Enabled: '&cServer Lockdown Enabled'
-Lockdown-Deny-Join: '&4&l>>Server Lockdown<<'
+Server-Lockdown-Disabled: "&2Server Lockdown Disabled"
+Server-Lockdown-Enabled: "&cServer Lockdown Enabled"
+Lockdown-Deny-Join: "&4&l>>Server Lockdown<<"
+Server-Chat-Disabled: "&cServer chat is disabled"
+Server-Chat-Disable: "&cServer chat has been disabled"
+Server-Chat-Enable: "&2Server chat has been enabled"

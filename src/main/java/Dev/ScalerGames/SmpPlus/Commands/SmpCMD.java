@@ -4,6 +4,7 @@ import Dev.ScalerGames.SmpPlus.Files.Data;
 import Dev.ScalerGames.SmpPlus.Files.Gui;
 import Dev.ScalerGames.SmpPlus.Files.Lang;
 import Dev.ScalerGames.SmpPlus.Gui.GuiListener;
+import Dev.ScalerGames.SmpPlus.Gui.RecipeGUI;
 import Dev.ScalerGames.SmpPlus.Gui.SettingsGUI;
 import Dev.ScalerGames.SmpPlus.Main;
 import Dev.ScalerGames.SmpPlus.Utils.Format;
@@ -46,22 +47,28 @@ public class SmpCMD implements CommandExecutor, TabCompleter {
                         Messages.prefix(s, "&2Reloaded Smp+");
                     }
                     //Command for checking the version of the plugin
-                    if (args[0].equalsIgnoreCase("version")) {
+                    else if (args[0].equalsIgnoreCase("version")) {
                         Messages.prefix(s, "&dThis server is running version &d&n"
                                 + Main.getInstance().getDescription().getVersion() + "&d of SMP+");
                     }
 
-                    if (args[0].equalsIgnoreCase("settings")) {
+                    else if (args[0].equalsIgnoreCase("settings")) {
                         SettingsGUI.generate((Player) s);
                     }
-                    if (args[0].equalsIgnoreCase("server")) {
+
+                    else if (args[0].equalsIgnoreCase("recipe")) {
+                        //RecipeGUI.generate((Player) s, "");
+                        Messages.prefix(s, "&cThis feature is not fully added yet.");
+                    }
+
+                    else if (args[0].equalsIgnoreCase("server")) {
                         Messages.prefix(s, "&9&lServer Version: &3" + Main.getInstance().getServer().getVersion()
                                 + "\n&9&lBukkit Version: &3" + Main.getInstance().getServer().getBukkitVersion()
                                 + "\n&9&lPlugin Version: &3" + Main.getInstance().getDescription().getVersion());
                     }
 
-                    if (!(args[0].equalsIgnoreCase("reload") || args[0].equalsIgnoreCase("version") || args[0].equals("settings") || args[0].equalsIgnoreCase("server"))) {
-                        Messages.prefix(s, "&cUsage: /smp [reload|version]");
+                    else {
+                        Messages.prefix(s, "&cUsage: /smp [reload|version|settings|server|recipe]");
                     }
 
                 }
