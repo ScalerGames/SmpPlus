@@ -13,3 +13,5 @@
 13 - Server Placeholders (Time, Online, Current World)
 14 - Basic commands allias such as gamemode and time
 15 - Custom Crafting (Added - menu needs adding)
+16 - Custom Armor Stands
+17 - HDB support

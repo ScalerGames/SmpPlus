@@ -15,7 +15,7 @@ public class CoordinatesCMD implements CommandExecutor {
             if (s.hasPermission("smp.coordinates")) {
                 if (s instanceof Player) {
                     Player p = (Player) s;
-                    Messages.prefix(s, "&9You are located at: " + "&9&lX:" + p.getLocation().getBlockX() + "&9&lY:" + p.getLocation().getBlockY() + "&9&lZ:" + p.getLocation().getBlockZ() + " &9in world &9&n" + p.getWorld().toString().toLowerCase());
+                    Messages.prefix(s, "&9You are located at: " + "&3X:" + p.getLocation().getBlockX() + " &3Y:" + p.getLocation().getBlockY() + " &3Z:" + p.getLocation().getBlockZ() + " &9in world: &3" + p.getWorld().getName().toUpperCase());
                 } else {
                     Messages.prefix(s, Lang.getLangConfig().getString("Player-Only-Command"));
                 }
