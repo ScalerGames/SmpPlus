@@ -119,6 +119,7 @@ public class Main extends JavaPlugin implements Listener {
         Bukkit.getPluginManager().registerEvents(new onDestroy(), this);
         Bukkit.getPluginManager().registerEvents(new RecipeGUI(), this);
         Bukkit.getPluginManager().registerEvents(new onClickBlock(), this);
+        Bukkit.getPluginManager().registerEvents(new onCommand(), this);
     }
 
     private boolean setupEconomy() {

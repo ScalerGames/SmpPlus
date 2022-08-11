@@ -1,6 +1,6 @@
 main: Dev.ScalerGames.SmpPlus.Main
 name: SmpPlus
-version: 1.0.0
+version: 1.0.1
 api-version: 1.13
 author: ScalerGames
 description: A plugin which adds several features for your SMP server!
@@ -26,3 +26,40 @@ commands:
   itemname:
   itemlore:
   event:
+permissions:
+  smp.cmd:
+    description: Gives access to the /smp command
+  smp.itemname:
+    description: Gives access to the /itemname command
+  smp.itemlore:
+    description: Gives access to the /itemlore command
+  smp.merchant:
+    description: Gives access to the /merchant command
+  smp.itemframe:
+    description: Gives access to the /itemframe command
+  smp.kick:
+    description: Gives access to the /kick command
+  smp.kickall:
+    description: Gives access to the /kickall command
+  smp.kick.override:
+    description: Prevents the player from being kicked
+  smp.lockdown:
+    description: Puts the server into lockdown
+  smp.lockdown.override:
+    description: Allows the player to be online during lockdown
+  smp.mutechat:
+    description: Gives access to the /mutechat command
+  smp.mutechat.override:
+    description: Allows the player to chat when the chat is muted
+  smp.unmutechat:
+    description: Gives access to the /unmutechat command
+  smp.coordinates:
+    description: Gives access to the /coordinates command
+  smp.help:
+    description: Gives access to the /help command
+  smp.rules:
+    description: Gives access to the rules command
+  smp.chat.color:
+    description: Allows the player to use color codes in chat
+  smp.chat.emoji:
+    description: Allows the player to use emoji's in chat

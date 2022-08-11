@@ -50,9 +50,11 @@ Events:
 
 Commands:
   rules:
+    enabled: true
     method: GUI #CHAT OR GUI
     gui-name: rules
   help:
+    enabled: true
     method: GUI
     gui-name: help
 

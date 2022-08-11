@@ -14,6 +14,20 @@ Events:
   Join:
     enabled: true
     message: "&8&l[&2▶&8&l] &aWelcome {player} back to the server"
+    ##############################################################
+    #Features that can be used
+    #direct-message: "Welcome {player}" - This will send a message to only the player that joined
+    #action-bar: "Test Action Bar" - This will send a message by action bar when the player joins
+    #title: "Test Title" - This will send a title when a player joins
+    #sub-title: "Test Subtitle" - This will send a subtitle along with the main one
+    #items: - This will give the player these items. Usefull for first join
+    #- "APPLE"
+    #- "STONE_PICKAXE"
+    #console-cmd: - This will run a console command
+    #- "give {player} DIAMOND_SWORD 1"
+    #player-cmd: - This will run a player command
+    #- "me XD"
+    ##############################################################
   FirstJoin:
     enabled: true
     message: "&8&l[&3ⓌⒺⓁⒸⓄⓂⒺ&8&l] &3{player} joined the server for the first time"
@@ -36,15 +50,19 @@ Events:
 
 Commands:
   rules:
-    method: GUI
+    enabled: true
+    method: GUI #CHAT OR GUI
     gui-name: rules
   help:
+    enabled: true
     method: GUI
     gui-name: help
 
 Durability:
+  #This will ping the player when there item durability is low
   enabled: true
   message: "&8&l[&c⛏&8&l] &cThe item (&c&n{item}&c) has low durability!"
+  #This is the amount that it will ping at
   amount: 8
 
 ItemFrames:
@@ -54,6 +72,7 @@ ItemFrames:
     Z: 3.0
 
 CraftingRecipes:
+  #This is a new feature and is experimental
   bundle:
     result:
       item: 'BUNDLE'
@@ -62,14 +81,14 @@ CraftingRecipes:
       row_2: "ABA"
       row_3: "AAA"
     materials: ['LEATHER', 'CHEST']
-  name_tag:
-    result:
-      item: 'NAME_TAG'
-    shape:
-      row_1: "ABA"
-      row_2: "CDC"
-      row_3: "CDC"
-    materials: ['IRON_INGOT', 'STRING', 'IRON_BLOCK', 'PAPER']
+  #name_tag: - This is an example which would add a crafting recipe for a name tag to the game
+    #result:
+      #item: 'NAME_TAG' - This is the item that can be crafted
+    #shape:
+      #row_1: "ABA" - This is the first row ingredients. In the recipe A = IRON_INGOT, B = STRING, C = IRON_BLOCK, D = PAPER
+      #row_2: "CDC"
+      #row_3: "CDC"
+    #materials: ['IRON_INGOT', 'STRING', 'IRON_BLOCK', 'PAPER'] - This is what is required to make the item. The first item in the list should be A in the shape.
 
 Shulkers:
   Respawn: true
@@ -84,6 +103,7 @@ CustomEvents:
     messages:
       - '&8&l[&3〓&8&l] &cThere is no event on right now'
   sub-commands:
+    #Add as many sub commands as you want
     announce:
       commands:
         - 'broadcast chat &cHello'
